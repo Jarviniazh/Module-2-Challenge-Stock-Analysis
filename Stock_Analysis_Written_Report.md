@@ -6,7 +6,7 @@
 Though we assisted Steve to analyze a handful green energy stocks for his parents by using VBA code to automate the analyses previously, Steve is worried about if he put more stocks in the future the current Marco may not perform as perfect as right now. Hence, we would refactor the original code by means of improving the logic, to enhance its efficiency and make sure it is capable to reuse with even larger stock market data in the future.  
 
 ## Results
-The below is the refactored VBA script:
+In order to improve efficiency of the script, we went over the original one and noticed we could make the nest loop fresher. Therefore, one index variable, tickerIndex and three arrays (tickerVolumes, tickerStartingPrices, and tickerEndingPrices) were added. The new nested loop should only execute once the corresponding index is detected. The below is the refactored VBA script:
 
 Sub AllStocksAnalysisRefactored()
     
@@ -138,8 +138,34 @@ Sub AllStocksAnalysisRefactored()
 
 End Sub
 
+#### The output for 2017 and 2018
+- 2017
+
+    ![image](https://github.com/Jarviniazh/Module-2-Challenge-Stock-Analysis/blob/main/Resources/Outputs%20of%202017.png)
+
+- 2018
+    
+    ![image](https://github.com/Jarviniazh/Module-2-Challenge-Stock-Analysis/blob/main/Resources/Outputs%20of%202018.png)
+
+#### Execute time of original code and refactoring code
+- Original code running time
+
+    ![image](https://github.com/Jarviniazh/Module-2-Challenge-Stock-Analysis/blob/main/Resources/VBA_Challenge_2017_Original.png)
+    ![image](https://github.com/Jarviniazh/Module-2-Challenge-Stock-Analysis/blob/main/Resources/VBA_Challenge_2018_Original.png)
+
+- Refactoring code running time
+
+    ![image](https://github.com/Jarviniazh/Module-2-Challenge-Stock-Analysis/blob/main/Resources/VBA_Challenge_2017.png)
+    ![image](https://github.com/Jarviniazh/Module-2-Challenge-Stock-Analysis/blob/main/Resources/VBA_Challenge_2018.png)
+
 ## Summary
 #### What are the advantages or disadvantages of refactoring code?
+- Pro: Refactoring code makes it easier to read and maintain. In addition, refactoring will speed up the performance of the code and save memory. Besides, people can target a specific section of code other than rewriting, so they do not need to do too much to improve small portions of a code. 
 
+- Cons: The process of refactoring is very time-consuming. And in case if it went wrong, we would have to waste much more time in solving the problem and there are probable chances that it may go wrong due to complexity of the code. 
 
 #### How do these pros and cons apply to refactoring the original VBA script?
+- Pro: The refactoring script save way more execute time than the original one. And since we give every variable a dimension such as tickerIndex, the well-defined variables make the script easier to read even the user change in the future. Meanwhile, based on Steve’s request, he could expand the dataset to included the entire stock market over the last few years with reasonable execute time later.
+
+- Cons: To make the script more efficient, we introduce more variables, which are needed to declare them properly. We must have a clear understanding of each variable and the role it will play in the new script, especially the data type. For example, in this project if we dim totalVolunm as integer, there will be a bug report pop up
+
